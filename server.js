@@ -5,9 +5,13 @@ import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 
+if (!fs.existsSync("./data")) {
+  fs.mkdirSync("./data", { recursive: true });
+}
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const JWT_SECRET =
   process.env.JWT_SECRET || "your-super-secret-key-2026-change-this!";
 const DB_PATH = path.join(__dirname, "../data/users.json");
@@ -171,5 +175,5 @@ app.post("/api/auth/tokens", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`✅ Auth server running on http://localhost:${PORT}`);
+  console.log(`✅ Auth server running on port ${PORT}`);
 });
