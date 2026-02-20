@@ -170,6 +170,9 @@ app.post("/api/auth/tokens", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Auth server running on port ${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`✅ Server listening on 0.0.0.0:${PORT}`);
+  console.log(
+    `🌐 Public: https://icetale-auth-server-production.up.railway.app`,
+  );
 });
