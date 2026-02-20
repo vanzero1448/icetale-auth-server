@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const JWT_SECRET =
   process.env.JWT_SECRET || "your-super-secret-key-2026-change-this!";
-const DB_PATH = "/app/data/users.json";
+const DB_PATH = "";
 
 app.use(cors());
 app.use(express.json());
